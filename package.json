@@ -8,7 +8,8 @@
     "test": "NODE_ENV=test jest --testEnvironment=node --verbose --watchAll --maxWorkers=1",
     "random": "nodemon utils/prepareData.js",
     "dev": "concurrently \"npm run start\" \"npm run start --prefix client/admin\" \"npm run start --prefix client/website\" ",
-    "ci": "concurrently \"npm run start\" "
+    "build": "npm install --prefix client/website",
+    "ci": "concurrently \"npm run start\" \"npm run build --client/website\" "
   },
   "author": "",
   "license": "ISC",
