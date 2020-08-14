@@ -1,0 +1,18 @@
+-- export data to mongo from json files generated from mysql
+mongoimport --jsonArray --db wellnezGCPLive --collection lswContents --file mysql/dataFromLiveWellnezGCP-29-Jul-2020/lsw_content.json
+mongoimport --jsonArray --db wellnezGCPLive --collection lswContentsAmp --file mysql/dataFromLiveWellnezGCP-29-Jul-2020/lsw_content_amp.json
+mongoimport --jsonArray --db wellnezGCPLive --collection lswListingPageUrlMetaTags --file mysql/dataFromLiveWellnezGCP-29-Jul-2020/lsw_listing_page_url_meta_tags.json
+mongoimport --jsonArray --db wellnezGCPLive --collection lswListings --file mysql/dataFromLiveWellnezGCP-29-Jul-2020/lsw_listings.json
+mongoimport --jsonArray --db wellnezGCPLive --collection lswMobileContents --file mysql/dataFromLiveWellnezGCP-29-Jul-2020/lsw_mobile_content.json
+mongoimport --jsonArray --db wellnezGCPLive --collection lswMobileContentsAmp --file mysql/dataFromLiveWellnezGCP-29-Jul-2020/lsw_mobile_content_amp.json
+
+mongoimport --jsonArray --db wellnezGCPLive --collection nuListingPages --file mysql/dataFromLiveWellnezGCP-29-Jul-2020/nu_listing_pages.json
+mongoimport --jsonArray --db wellnezGCPLive --collection nuListingPagesLevelZero --file mysql/dataFromLiveWellnezGCP-29-Jul-2020/nu_listing_pages_level_zero.json
+mongoimport --jsonArray --db wellnezGCPLive --collection nuRawDataWebScape --file mysql/dataFromLiveWellnezGCP-29-Jul-2020/nu_raw_data_web_scape.json
+mongoimport --jsonArray --db wellnezGCPLive --collection nuRecommendedFor --file mysql/dataFromLiveWellnezGCP-29-Jul-2020/nu_recommended_for.json
+mongoimport --jsonArray --db wellnezGCPLive --collection nuRecommendedForDisplayText --file mysql/dataFromLiveWellnezGCP-29-Jul-2020/nu_recommended_for_display_text.json
+
+
+
+
+

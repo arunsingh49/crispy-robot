@@ -1,0 +1,59 @@
+      /*-----------------------------------------------------------------------------*/
+      /* -----------------------------CUSTOM LAYOUT (START)--------------------------*/
+      /*------------------------------------------------------------------------------*/
+
+    /*--------------------*/
+    /* Footer */
+    /*--------------------*/
+
+.lsw-footer {
+    float: left;
+    display: inline;
+    width: 100%;
+}
+.lsw-footer {
+    background-color: #dce3e5;
+    display: inline;
+    float: left;
+    padding: 25px 0;
+    width: 100%;
+}
+.lsw-copyright-footer{
+  float: left;
+  display: inline;
+  width: 100%;
+}
+.lsw-social-footer{
+  float: left;
+  display: inline;
+  width: 100%;
+  text-align: right;
+}
+.lsw-copyright-footer>p>a {
+    text-decoration: none;
+    outline: none;
+    border-bottom: 1px transparent;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    color: rgb(0, 153, 198);
+}
+.lsw-social-footer a {
+    display: inline-block;
+    float: none;
+    font-size: 15px;
+    height: 30px;
+    line-height: 29px;
+    margin: 0 3px;
+    text-align: center;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    width: 35px;
+}
+.lsw-social-footer a {
+    border: 1px solid rgb(0, 153, 198);
+    color: rgb(0, 153, 198);
+}

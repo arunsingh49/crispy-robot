@@ -1,0 +1,40 @@
+/*-----------------------------------------------------------------------------*/
+/* -----------------------------CUSTOM LAYOUT (START)--------------------------*/
+/*------------------------------------------------------------------------------*/
+
+/*--------------------*/
+/* BLOG BODY */
+/*--------------------*/
+
+.blog-img-listing img:hover {
+  -moz-transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+  -o-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+  -webkit-transition: transform 0.25s ease-in-out;
+  -moz-transition: transform 0.25s ease-in-out;
+  -ms-transition: transform 0.25s ease-in-out;
+}
+
+/*--------------------*/
+/* CUSTOM MISC LAYOYT */
+/*--------------------*/
+.blog-img-listing {
+  float: left;
+  display: inline;
+  width: 100%;
+  height: 100%;
+  border: solid 1px;
+  border-bottom: 0;
+  border-color: #f2f2f2;
+  margin-bottom: 0;
+}
+.blog-img-listing figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+  opacity: 1;
+}

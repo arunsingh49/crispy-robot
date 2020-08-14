@@ -1,0 +1,5 @@
+{
+	"jwtPrivateKey": "123456789",
+	"db": "mongodb://localhost/vidly_tests",
+	"imgpath": "http://www.wellnez.in:9000/wellnez/img/blog-img/default/"
+}

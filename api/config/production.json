@@ -1,0 +1,5 @@
+{
+	"jwtPrivateKey": "123456789",
+	"db": "mongodb://localhost/vidly_tests",
+	"imgpath": "http://localhost:9000/"
+}
