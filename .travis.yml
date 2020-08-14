@@ -14,7 +14,7 @@ cache:
     - client/website/node_modules
 install:
   - npm install
-  - npm install-client-website
+  - npm ins-client-website
   - npm run build-client-website
 scripts:
   - nohup npm run ci &
