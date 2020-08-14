@@ -8,8 +8,9 @@
     "test": "NODE_ENV=test jest --testEnvironment=node --verbose --watchAll --maxWorkers=1",
     "random": "nodemon utils/prepareData.js",
     "dev": "concurrently \"npm run start\" \"npm run start --prefix client/admin\" \"npm run start --prefix client/website\" ",
-    "build": "npm install --prefix client/website && npm run build --prefix client/website",
-    "ci": "npm run start"
+    "install-client-website": "npm install --prefix client/website",
+    "build-client-website": "npm run build --prefix client/website",
+    "ci": "NODE_ENV=development wellenzapi_jwtPrivateKey=myprivatekey node index.js"
   },
   "author": "",
   "license": "ISC",
