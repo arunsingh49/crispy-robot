@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - '12'
+disty: trusty
+services:
+  - mongodb
+  - redis
+env:
+  - NODE_ENV=development
+cache:
+  directories:
+    - node_modules
+    - api/node_modules
+    - website/node_modules
+install:
+  - npm install
+  - npm run buildwebsite
+scripts:
+  - nohup npm run ci &
+  - sleep 3
+  - npm run test

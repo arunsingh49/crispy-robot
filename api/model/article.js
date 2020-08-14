@@ -14,7 +14,7 @@ const articleSchema = new mongoose.Schema({
 	category: {
 		type: categorySchema,
 	},
-	body: { type: String, required: true },
+	body: { type: String },
 	template: { type: String, maxlength: 100 },
 	headerImageName: { type: String, maxlength: 500 },
 	headerImageAltDesc: { type: String, maxlength: 500 },

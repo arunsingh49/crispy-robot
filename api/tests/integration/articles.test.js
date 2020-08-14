@@ -150,12 +150,10 @@ describe('/api/articles', () => {
 				template: 'a',
 				headerImageName: 'a',
 				headerImageAltDesc: 'a',
-				headerImagePath: 'a',
 				headerImageWidth: 'a',
 				headerImageHeight: 'a',
 				headerThumbnailImageName: 'a',
 				headerThumbnailImageAltDesc: 'a',
-				headerThumbnailImagePath: 'a',
 				headerThumbnailImageWidth: 'a',
 				headerThumbnailImageHeight: 'a',
 				// createdOn: 'a' , // default is Date.now
@@ -186,12 +184,10 @@ describe('/api/articles', () => {
 				template: 'b',
 				headerImageName: 'b',
 				headerImageAltDesc: 'b',
-				headerImagePath: 'b',
 				headerImageWidth: 'b',
 				headerImageHeight: 'b',
 				headerThumbnailImageName: 'b',
 				headerThumbnailImageAltDesc: 'b',
-				headerThumbnailImagePath: 'b',
 				headerThumbnailImageWidth: 'b',
 				headerThumbnailImageHeight: 'b',
 				// createdOn: 'b' , // default is Date.now
@@ -212,12 +208,10 @@ describe('/api/articles', () => {
 		itVerifyStringMaxLength('template', 100);
 		itVerifyStringMaxLength('headerImageName', 500);
 		itVerifyStringMaxLength('headerImageAltDesc', 500);
-		itVerifyStringMaxLength('headerImagePath', 500);
 		itVerifyStringMaxLength('headerImageWidth', 100);
 		itVerifyStringMaxLength('headerImageHeight', 100);
 		itVerifyStringMaxLength('headerThumbnailImageName', 500);
 		itVerifyStringMaxLength('headerThumbnailImageAltDesc', 500);
-		itVerifyStringMaxLength('headerThumbnailImagePath', 500);
 		itVerifyStringMaxLength('headerThumbnailImageWidth', 100);
 		itVerifyStringMaxLength('headerThumbnailImageHeight', 100);
 		itVerifyStringMaxLength('summary', 2000);
@@ -236,6 +230,7 @@ describe('/api/articles', () => {
 
 			const articleFromDB = await Article.findById(article._id);
 
+			console.log('articleFromDB', articleFromDB);
 			expect(articleFromDB).toHaveProperty('id', 1);
 			expect(articleFromDB).toHaveProperty('title', 'b');
 			expect(articleFromDB).toHaveProperty('urlTitle', 'b');
@@ -244,7 +239,6 @@ describe('/api/articles', () => {
 			expect(articleFromDB).toHaveProperty('template', 'b');
 			expect(articleFromDB).toHaveProperty('headerImageName', 'b');
 			expect(articleFromDB).toHaveProperty('headerImageAltDesc', 'b');
-			expect(articleFromDB).toHaveProperty('headerImagePath', 'b');
 			expect(articleFromDB).toHaveProperty('headerImageWidth', 'b');
 			expect(articleFromDB).toHaveProperty('headerImageHeight', 'b');
 			expect(articleFromDB).toHaveProperty(
@@ -253,10 +247,6 @@ describe('/api/articles', () => {
 			);
 			expect(articleFromDB).toHaveProperty(
 				'headerThumbnailImageAltDesc',
-				'b',
-			);
-			expect(articleFromDB).toHaveProperty(
-				'headerThumbnailImagePath',
 				'b',
 			);
 			expect(articleFromDB).toHaveProperty(
@@ -368,7 +358,8 @@ describe('/api/articles', () => {
 
 			const res = await getReq();
 
-			expect(res.status).toBe(400);
+			console.log('res', res);
+			expect(res.status).toBe(404);
 		});
 		it('Should return an article when a valid article id is passed', async () => {
 			const res = await getReq();

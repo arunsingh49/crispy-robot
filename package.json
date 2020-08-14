@@ -8,7 +8,9 @@
 		"api": "npm run start --prefix api",
 		"website": "npm run start --prefix website",
 		"dev": "concurrently \"npm run admin\" \"npm run api\" \"npm run website\"",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"ci": "npm run api",
+		"test": "npm run test --prefix api",
+		"buildwebsite": "npm run build --prefix website"
 	},
 	"author": "",
 	"license": "ISC",
