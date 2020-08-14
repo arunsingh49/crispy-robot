@@ -10,11 +10,10 @@ env:
 cache:
   directories:
     - node_modules
-    - api/node_modules
-    - website/node_modules
+    - client/api/node_modules
+    - client/website/node_modules
 install:
   - npm install
-  - npm run buildwebsite
 scripts:
   - nohup npm run ci &
   - sleep 3

@@ -1,5 +1,6 @@
 node_modules/
-/admin/node_modules
-/api/node_modules
-/website/node_modules
-/api/coverage
+coverage/
+/client/admin/node_modules
+/client/admin/build
+/client/website/node_modules
+/client/website/build

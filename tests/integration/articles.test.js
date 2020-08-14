@@ -230,7 +230,6 @@ describe('/api/articles', () => {
 
 			const articleFromDB = await Article.findById(article._id);
 
-			console.log('articleFromDB', articleFromDB);
 			expect(articleFromDB).toHaveProperty('id', 1);
 			expect(articleFromDB).toHaveProperty('title', 'b');
 			expect(articleFromDB).toHaveProperty('urlTitle', 'b');
@@ -358,7 +357,6 @@ describe('/api/articles', () => {
 
 			const res = await getReq();
 
-			console.log('res', res);
 			expect(res.status).toBe(404);
 		});
 		it('Should return an article when a valid article id is passed', async () => {
