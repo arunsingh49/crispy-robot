@@ -1,0 +1,15 @@
+
+> wellnezmongoapi@1.0.0 ci /home/arun99/Documents/nodejsapps/nodeRandomTests/wellnezv6
+> NODE_ENV=development wellenzapi_jwtPrivateKey=myprivatekey node index.js
+
+Killed
+npm ERR! code ELIFECYCLE
+npm ERR! errno 137
+npm ERR! wellnezmongoapi@1.0.0 ci: `NODE_ENV=development wellenzapi_jwtPrivateKey=myprivatekey node index.js`
+npm ERR! Exit status 137
+npm ERR! 
+npm ERR! Failed at the wellnezmongoapi@1.0.0 ci script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/arun99/.npm/_logs/2020-08-14T20_40_59_217Z-debug.log

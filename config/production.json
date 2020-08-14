@@ -1,6 +1,7 @@
 {
 	"jwtPrivateKey": "123456789",
 	"db": "mongodb://localhost/vidly_tests",
-	"server": "http://localhost:9000/",
-	"imgpath": "http://localhost:9000/"
+	"defaultPort": 9000,
+	"server": "http://localhost",
+	"imgFolderDefault": "public/images/default/"
 }

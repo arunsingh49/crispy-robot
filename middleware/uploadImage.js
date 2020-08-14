@@ -2,7 +2,9 @@ const multer = require('multer');
 const fs = require('fs');
 const config = require('config');
 
-const server = config.get('server');
+const port = process.env.PORT || config.get('defaultPort');
+const server = `${config.get('server')}:${port}/`;
+
 const imgPath = config.get('imgFolderDefault');
 
 module.exports = (req, res, next) => {

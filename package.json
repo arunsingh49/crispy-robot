@@ -10,7 +10,7 @@
     "dev": "concurrently \"npm run start\" \"npm run start --prefix client/admin\" \"npm run start --prefix client/website\" ",
     "install-client-website": "npm install --prefix client/website",
     "build-client-website": "npm run build --prefix client/website",
-    "ci": "NODE_ENV=development wellenzapi_jwtPrivateKey=myprivatekey node index.js"
+    "ci": "NODE_ENV=ci wellenzapi_jwtPrivateKey=myprivatekey node index.js"
   },
   "author": "",
   "license": "ISC",
