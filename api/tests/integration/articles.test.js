@@ -15,7 +15,7 @@ describe('/api/articles', () => {
 		await Category.deleteMany({});
 	});
 	describe('GET', () => {
-		it('should return all the articles in DB', async () => {
+		it('should return all the available articles in DB', async () => {
 			const articles = [
 				{ title: 'a1', urlTitle: 'b1', category: { url: 'cat1' } },
 				{ title: 'a2', urlTitle: 'b2', category: { url: 'cat2' } },
@@ -59,7 +59,7 @@ describe('/api/articles', () => {
 				categoryId: category._id,
 			};
 		});
-		it('should return 400 if title for the article is not supplied', async () => {
+		it('should return 400 if title for the available article is not supplied', async () => {
 			article.title = '';
 
 			const res = await postReq();
