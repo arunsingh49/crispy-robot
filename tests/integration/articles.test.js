@@ -14,6 +14,11 @@ describe('/api/articles', () => {
 		await Article.deleteMany({});
 		await Category.deleteMany({});
 	});
+	afterAll((done) => {
+		// Closing the DB connection allows Jest to exit successfully.
+		mongoose.connection.close();
+		done();
+	});
 	describe('GET', () => {
 		it('should return all the available articles in DB', async () => {
 			const articles = [

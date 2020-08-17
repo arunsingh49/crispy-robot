@@ -13,6 +13,11 @@ describe('/api/categories', () => {
 		await server.close();
 		await Category.deleteMany({});
 	});
+	afterAll((done) => {
+		// Closing the DB connection allows Jest to exit successfully.
+		mongoose.connection.close();
+		done();
+	});
 	describe('GET', () => {
 		it('should return all categories', async () => {
 			const categories = await Category.insertMany([
