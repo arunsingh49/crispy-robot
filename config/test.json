@@ -3,5 +3,5 @@
 	"db": "mongodb://localhost/vidly_tests",
 	"defaultPort": 9000,
 	"server": "http://localhost",
-	"imgFolderDefault": "public/images/default/"
+	"imgFolderDefault": "public/images/"
 }

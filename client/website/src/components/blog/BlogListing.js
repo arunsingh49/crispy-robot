@@ -10,6 +10,10 @@ import Footer from '../common/Footer';
 import Header from '../common/Header';
 
 class BlogListing extends Component {
+	constructor(props) {
+		super(props);
+		this.blogListingBodyRef = React.createRef();
+	}
 	state = {
 		data: [],
 		relatedArticles: [],
@@ -37,7 +41,6 @@ class BlogListing extends Component {
 		);
 		this.setState({ relatedArticles });
 	};
-
 	populateArticles = async (articleId) => {
 		const { data, count } = await getArticles(
 			this.state.currentPage,
@@ -54,13 +57,35 @@ class BlogListing extends Component {
 	};
 
 	handleHeaderClick = ({ currentTarget }) => {
-		this.populateListingPage(currentTarget.href);
+		this.setState({ currentPage: 1 }, () => {
+			this.populateListingPage(currentTarget.href);
+		});
 	};
 
+	scrollPaginationRef = () => {
+		setTimeout(() => {
+			var _this = this;
+			window.requestAnimationFrame(function() {
+				var node = _this.blogListingBodyRef.current.paginationRef;
+				console.log('node - ', node);
+				if (node !== undefined) {
+					console.log(
+						'node.offsetHeight - ',
+						node.current.offsetHeight,
+					);
+					window.scrollTo(50, node.current.offsetHeight);
+				}
+			});
+		}, 200);
+	};
 	handlePageChange = async (page) => {
-		const id = this.getArticleId(this.props.match.url);
-		const { data } = await getArticles(page, this.state.pageSize, id);
-		this.setState({ data: data, currentPage: page });
+		if (page !== this.state.currentPage) {
+			const id = this.getArticleId(this.props.match.url);
+			const { data } = await getArticles(page, this.state.pageSize, id);
+			this.setState({ data: data, currentPage: page }, () => {
+				this.scrollPaginationRef();
+			});
+		}
 	};
 
 	async componentDidMount() {
@@ -95,6 +120,9 @@ class BlogListing extends Component {
 													currentPage={currentPage}
 													pageSize={pageSize}
 													itemsCount={itemsCount}
+													ref={
+														this.blogListingBodyRef
+													}
 												/>
 												<RelatedArticles
 													data={relatedArticles}
@@ -114,3 +142,29 @@ class BlogListing extends Component {
 }
 
 export default BlogListing;
+/*
+	// to Scroll to the pagination component location and not to the top
+	handlePageChange = async (page) => {
+		const id = this.getArticleId(this.props.match.url);
+		const { data } = await getArticles(page, this.state.pageSize, id);
+		this.setState({ data: data, currentPage: page }, () => {
+			this.scrollPaginationRef();
+		});
+	};
+
+	scrollPaginationRef = () => {
+		setTimeout(() => {
+			var _this = this;
+			window.requestAnimationFrame(function() {
+				var node = _this.blogListingBodyRef.current.paginationRef;
+				console.log('node - ', node);
+				if (node !== undefined) {
+					console.log(
+						'node.offsetHeight - ',
+						node.current.offsetHeight,
+					);
+					window.scrollTo(100, node.current.offsetHeight);
+				}
+			});
+		}, 200);
+	};*/

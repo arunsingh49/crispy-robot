@@ -18,4 +18,4 @@ install:
 scripts:
   - nohup npm run ci &
   - sleep 3
-  - npm run test
+  - npm run test-ci

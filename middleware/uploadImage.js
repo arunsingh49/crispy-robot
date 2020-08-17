@@ -56,20 +56,23 @@ function fileFilter(req, file, cb) {
 	}
 }
 
-function destination(req, file, cb) {
-	const dir = `./${imgPath}${req.body.urlTitle}/`;
+function filePath(req) {
+	return `${imgPath}${req.body.categoryName}/${req.body.urlTitle}`;
+}
 
+function destination(req, file, cb) {
+	const dir = `./${filePath(req)}`;
+
+	console.log('dir', dir);
 	if (!fs.existsSync(dir)) {
-		fs.mkdirSync(dir);
+		fs.mkdirSync(dir, { recursive: true });
 	}
 
 	cb(null, dir);
 }
 
 function filename(req, file, cb) {
-	console.log('req.body - ', req.body);
-	console.log('file - ', file);
-	const fullImgPath = `${server}${imgPath}${req.body.urlTitle}`;
+	const fullImgPath = `${server}${filePath(req)}`;
 
 	req.body.image = `${fullImgPath}/${file.originalname}`;
 

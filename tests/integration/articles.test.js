@@ -148,11 +148,11 @@ describe('/api/articles', () => {
 				},
 				body: 'a',
 				template: 'a',
-				headerImageName: 'a',
+				headerImagePath: 'a',
 				headerImageAltDesc: 'a',
 				headerImageWidth: 'a',
 				headerImageHeight: 'a',
-				headerThumbnailImageName: 'a',
+				headerThumbnailImagePath: 'a',
 				headerThumbnailImageAltDesc: 'a',
 				headerThumbnailImageWidth: 'a',
 				headerThumbnailImageHeight: 'a',
@@ -182,11 +182,11 @@ describe('/api/articles', () => {
 				categoryId: newCategory._id,
 				body: 'b',
 				template: 'b',
-				headerImageName: 'b',
+				headerImagePath: 'b',
 				headerImageAltDesc: 'b',
 				headerImageWidth: 'b',
 				headerImageHeight: 'b',
-				headerThumbnailImageName: 'b',
+				headerThumbnailImagePath: 'b',
 				headerThumbnailImageAltDesc: 'b',
 				headerThumbnailImageWidth: 'b',
 				headerThumbnailImageHeight: 'b',
@@ -206,11 +206,11 @@ describe('/api/articles', () => {
 		itVerifyStringMaxLength('title', 150);
 		itVerifyStringMaxLength('urlTitle', 150);
 		itVerifyStringMaxLength('template', 100);
-		itVerifyStringMaxLength('headerImageName', 500);
+		itVerifyStringMaxLength('headerImagePath', 500);
 		itVerifyStringMaxLength('headerImageAltDesc', 500);
 		itVerifyStringMaxLength('headerImageWidth', 100);
 		itVerifyStringMaxLength('headerImageHeight', 100);
-		itVerifyStringMaxLength('headerThumbnailImageName', 500);
+		itVerifyStringMaxLength('headerThumbnailImagePath', 500);
 		itVerifyStringMaxLength('headerThumbnailImageAltDesc', 500);
 		itVerifyStringMaxLength('headerThumbnailImageWidth', 100);
 		itVerifyStringMaxLength('headerThumbnailImageHeight', 100);
@@ -236,12 +236,12 @@ describe('/api/articles', () => {
 			// expect(articleFromDB).toHaveProperty('categoryId', newCategory._id
 			expect(articleFromDB).toHaveProperty('body', 'b');
 			expect(articleFromDB).toHaveProperty('template', 'b');
-			expect(articleFromDB).toHaveProperty('headerImageName', 'b');
+			expect(articleFromDB).toHaveProperty('headerImagePath', 'b');
 			expect(articleFromDB).toHaveProperty('headerImageAltDesc', 'b');
 			expect(articleFromDB).toHaveProperty('headerImageWidth', 'b');
 			expect(articleFromDB).toHaveProperty('headerImageHeight', 'b');
 			expect(articleFromDB).toHaveProperty(
-				'headerThumbnailImageName',
+				'headerThumbnailImagePath',
 				'b',
 			);
 			expect(articleFromDB).toHaveProperty(

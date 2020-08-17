@@ -3,16 +3,24 @@ import { getArticles } from '../../services/articleService';
 import MobileSideMenu from '../common/MobileSideMenu';
 import HomeCarousel from '../common/HomeCarousel';
 import ListingColumn from '../common/ListingColumn';
-import Pagination from '../common/pagination';
+import Pagination from '../common/Pagination';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 
 class BlogHome extends React.Component {
+	constructor(props) {
+		super(props);
+		this.paginationRef = React.createRef();
+	}
 	state = {
 		data: [],
 		currentPage: 1,
 		pageSize: 10,
 		itemsCount: 0,
+	};
+	scrollToRef = () => {
+		console.log('i am clicked');
+		window.scrollTo(0, this.paginationRef.current.offsetTop);
 	};
 	populateArticles = async (articleId) => {
 		const { data, count } = await getArticles(
@@ -25,10 +33,12 @@ class BlogHome extends React.Component {
 	handlePageChange = async (page) => {
 		const { data } = await getArticles(page, this.state.pageSize);
 		this.setState({ data: data, currentPage: page });
+		this.scrollToRef();
 	};
 	componentDidMount() {
 		this.populateArticles();
 	}
+
 	render() {
 		const { data, currentPage, pageSize, itemsCount } = this.state;
 		const halfLength = Math.ceil(data.length / 2);
@@ -66,6 +76,7 @@ class BlogHome extends React.Component {
 									currentPage={currentPage}
 									pageSize={pageSize}
 									itemsCount={itemsCount}
+									ref={this.paginationRef}
 								/>
 							</div>
 						</div>

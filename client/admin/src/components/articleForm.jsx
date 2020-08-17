@@ -18,8 +18,6 @@ class ArticleForm extends Form {
 			headerImageAltDesc: '',
 			headerImageWidth: '',
 			headerImageHeight: '',
-			headerThumbnailImagePath: '',
-			headerThumbnailImageAltDesc: '',
 			headerThumbnailImageWidth: '',
 			headerThumbnailImageHeight: '',
 			categoryDisplay: true,
@@ -83,7 +81,6 @@ class ArticleForm extends Form {
 			headerImageAltDesc: article.headerImageAltDesc,
 			headerImageWidth: article.headerImageWidth,
 			headerImageHeight: article.headerImageHeight,
-			headerThumbnailImageAltDesc: article.headerThumbnailImageAltDesc,
 			headerThumbnailImageWidth: article.headerThumbnailImageWidth,
 			headerThumbnailImageHeight: article.headerThumbnailImageHeight,
 			categoryDisplay: article.categoryDisplay,
@@ -134,8 +131,12 @@ class ArticleForm extends Form {
 	};
 
 	imageUpload = (imgFile) => {
+		const { url: categoryName } = this.state.categories.filter(
+			(c) => c._id === this.state.data.categoryId,
+		)[0];
 		const fd = this.getFormData({
 			urlTitle: this.state.data.urlTitle,
+			categoryName,
 			image: imgFile,
 		});
 		return uploadImage(fd);
@@ -216,10 +217,6 @@ class ArticleForm extends Form {
 				{this.renderInput('headerImageAltDesc', 'headerImageAltDesc')}
 				{this.renderInput('headerImageWidth', 'headerImageWidth')}
 				{this.renderInput('headerImageHeight', 'headerImageHeight')}
-				{this.renderInput(
-					'headerThumbnailImageAltDesc',
-					'headerThumbnailImageAltDesc',
-				)}
 				{this.renderInput(
 					'headerThumbnailImageWidth',
 					'headerThumbnailImageWidth',

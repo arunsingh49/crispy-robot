@@ -1,3 +1,4 @@
 {
-	"apiServer": "http://localhost:9000"
+	"apiServer": "http://localhost:9000",
+	"imagePath": "/public/images/"
 }
