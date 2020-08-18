@@ -2,6 +2,12 @@ language: node_js
 node_js:
   - '12'
 disty: trusty
+deploy_service_job: &DEPLOY_SERVICE_JOB
+  cache:
+    directories:
+      - node_modules
+      - client/admin/node_modules
+      - client/website/node_modules
 services:
   - mongodb
 env:
@@ -19,3 +25,17 @@ scripts:
   - nohup npm run ci &
   - sleep 3
   - npm run test-ci
+environments:
+  - &PRODUCTION_ENV
+    - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID_PRODUCTION}
+    - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY_PRODUCTION}
+
+jobs:
+  include:
+    - <<: *DEPLOY_SERVICE_JOB
+      name: 'Deploy Tests '
+      if: type = push AND branch = master
+      env:
+        - SERVICE_PATH="./"
+        - STAGE_NAME=prod
+        - *PRODUCTION_ENV
