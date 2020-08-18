@@ -26,7 +26,7 @@ scripts:
   - nohup npm run ci &
   - sleep 3
   - npm run test-ci
-  - serverless deploy -s ${TRAVIS_BRANCH}
+  - serverless deploy -s ${STAGE_NAME}
 environments:
   - &PRODUCTION_ENV
     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID_PRODUCTION}
