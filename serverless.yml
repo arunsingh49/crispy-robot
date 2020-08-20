@@ -10,4 +10,4 @@ provider:
 
 functions:
   hello:
-    handler: index.js
+    handler: index.handler

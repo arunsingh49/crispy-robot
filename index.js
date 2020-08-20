@@ -1,3 +1,4 @@
+const serverless = require('serverless-http');
 const mongoose = require('mongoose');
 const express = require('express');
 const winston = require('winston');
@@ -13,7 +14,7 @@ require('./startup/routes')(app);
 
 // setup some production file serving
 if (['production'].includes(process.env.NODE_ENV)) {
-	app.use(express.static('client/build'));
+	app.use(express.static('client/website/build'));
 
 	const path = require('path');
 	app.get('*', (req, res) => {
@@ -27,3 +28,4 @@ const server = app.listen(port, () => {
 });
 
 module.exports = server;
+module.exports.handler = serverless(app);

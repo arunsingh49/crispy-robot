@@ -4,3 +4,4 @@ coverage/
 /client/admin/build
 /client/website/node_modules
 /client/website/build
+wellnezDevIAM_accessKeys.csv
